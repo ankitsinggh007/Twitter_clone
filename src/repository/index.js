@@ -1,3 +1,3 @@
-module.exports={
-    TweetRepo:require("./tweet-reporsitory")
-}
+import TweetRepo from "./tweet-reporsitory.js";
+
+export default TweetRepo;

@@ -12,7 +12,6 @@ class HashtagRepo{
     }
     async findByName(titleList){
         try {
-            console.log(titleList)
             const tags=await Hashtag.find({
                 title: titleList,
             });

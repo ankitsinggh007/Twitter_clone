@@ -18,16 +18,14 @@ class Tweetservice {
 
             const tags = content.match(/#[a-zA-Z0-9_]+/g)?.map((tag)=>tag.substring(1).toLowerCase());
             let alreadyPresentTags=await this.hashtags.findByName(tags);
-            
 
+            const present=alreadyPresentTags.map(tag=>tag.title);
 
-            console.log(alreadyPresentTags,"already");
  
-            let haveToCreateTags=tags.filter(tag => !tags.includes(tag)).map(tag=>{return {title:tag,tweets:[TweetResponse.id]}} );
+            let haveToCreateTags=tags.filter(tag => !present.includes(tag)).map(tag=>{return {title:tag,tweets:[TweetResponse.id]}} );
             
             let hashtagResponse=await this.hashtags.BulkCreate(haveToCreateTags);
 
-            console.log(haveToCreateTags,"haveToCreateTags");
             alreadyPresentTags=alreadyPresentTags.forEach(tag=>{
                 tag.tweets.push(TweetResponse.id);
                 tag.save();

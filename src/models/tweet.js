@@ -8,7 +8,13 @@ content:{
     required:true,
                                                                                             
 max:[250,"Tweet should contain less then 250 characters"]                                // maxlength: 50
-}
+},
+likes:[
+    {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Like'
+    }
+]
 
 },{timestamps:true})
 const Tweet=mongoose.model("Tweet",tweetSchema);

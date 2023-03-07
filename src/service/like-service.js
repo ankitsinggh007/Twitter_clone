@@ -11,9 +11,10 @@ class likeService{
 
     }
     async toggleLike(modelId, modelType, userId) { // /api/v1/likes/toggle?id=modelid&type=Tweet
-        console.log(modelId, modelType, userId);
         if(modelType == 'Tweet') {
+            console.log("inside Like-sevice")
             var likeable = await this.tweetRepository.find(modelId)
+            console.log(likeable,"likeable")
         } else if(modelType == 'Comment') {
             // TODO
         } else {

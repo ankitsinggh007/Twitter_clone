@@ -20,4 +20,23 @@ const tweetservice=new Tweetservice();
         })  
     }
  }
+ export const  getTweet=async(req,res)=>{
+    try {
+       const response=await tweetservice.get(req.params.id);
+        return res.status(200).json({
+            success:true,
+            message:"Succesfully fetched the Tweet",
+            data:response,
+            err:{}
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success:false,
+            message:"Failed ",
+            data:[],
+            err:error,
+        });
+    }
+    
+ }
  

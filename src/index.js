@@ -1,7 +1,6 @@
 
 import express from "express";
 
-// import connect from "./config/databaseConfig";
 import connect from "./config/databaseConfig.js";
 import Tweetservice from "./service/tweet-service.js";
 import ApiRoute from "./routes/index.js"

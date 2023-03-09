@@ -8,6 +8,7 @@ class userService {
 
     async signUp(data){
         try {
+            console.log(data,"data");
         const response=await this.userRespository.create(data);
         console.log(response,"response");
             return response;

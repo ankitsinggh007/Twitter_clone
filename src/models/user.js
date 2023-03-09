@@ -32,6 +32,16 @@ userSchema.pre('save', function(next){
      next();
 })
 
+    userSchema.pre('save',function(next) {
+        const SALT=bcrypt.genSaltSync();
+        console.log("hi")
+        const encryptPassword=bcrypt.hashSync(this.password,SALT);
+        this.password=encryptPassword;
+        next();
+    });
+
+
+
 const User = mongoose.model('User', userSchema);
 
 export default User;

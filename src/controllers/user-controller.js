@@ -2,7 +2,10 @@ import userService from "../service/user-service.js";
 const UserService = new userService();
 
 export const signup = async (req, res) => {
-    try {
+    console.log(req)
+
+    try {   
+
         const response = await UserService.signUp(req.body);
         return res.status(201).json({
             success: true,
